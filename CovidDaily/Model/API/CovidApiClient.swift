@@ -32,7 +32,7 @@ class CovidApiClient: ApiClient {
     }
     
     class func getSummary(completionHandler: @escaping ([CountrySummaryDto]?, Error?) -> Void) -> URLSessionTask {
-        let task = taskForRequest(url: Endpoint.getSummary.url, httpMethod: .get, requestBody: nil as VoidRequestBody?, resultDataMapper: nil, resultType: SummaryResponse.self, errorResultType: VoidErrorResponseBody.self) { (result, error) in
+        let task = taskForRequest(url: Endpoint.getSummary.url, httpMethod: .get, dateFormatter: .iso8601Full, requestBody: nil as VoidRequestBody?, resultDataMapper: nil, resultType: SummaryResponse.self, errorResultType: VoidErrorResponseBody.self) { (result, error) in
             guard let result = result, error == nil else {
                 completionHandler(nil, error)
                 return
@@ -44,7 +44,7 @@ class CovidApiClient: ApiClient {
     }
     
     class func getConfirmedDetailsByCountryAndState(slug: String, state: CovidCasesStatus, completionHandler: @escaping ([TotalByDateDto]?, Error?) -> Void) -> URLSessionTask {
-        let task = taskForRequest(url: Endpoint.getDetailsByCountryAndState(slug: slug, state: state).url, httpMethod: .get, requestBody: nil as VoidRequestBody?, resultDataMapper: nil, resultType: [TotalByDateDto].self, errorResultType: VoidErrorResponseBody.self) { (result, error) in
+        let task = taskForRequest(url: Endpoint.getDetailsByCountryAndState(slug: slug, state: state).url, httpMethod: .get, dateFormatter: .iso, requestBody: nil as VoidRequestBody?, resultDataMapper: nil, resultType: [TotalByDateDto].self, errorResultType: VoidErrorResponseBody.self) { (result, error) in
             guard let result = result, error == nil else {
                 completionHandler(nil, error)
                 return
@@ -57,5 +57,16 @@ class CovidApiClient: ApiClient {
     
     enum CovidCasesStatus: String {
         case confirmed, recovered, deaths
+        
+        var tag: Int {
+            switch self {
+            case .confirmed:
+                return 0
+            case .deaths:
+                return 1
+            case .recovered:
+                return 2
+            }
+        }
     }
 }

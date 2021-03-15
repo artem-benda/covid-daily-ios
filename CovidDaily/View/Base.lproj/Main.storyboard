@@ -35,14 +35,14 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="summaryCell" id="7r1-wr-9og" customClass="SummaryCollectionViewCell" customModule="CovidDaily" customModuleProvider="target">
-                                                <rect key="frame" x="9.5" y="0.0" width="395" height="155"/>
+                                                <rect key="frame" x="86" y="0.0" width="242" height="155"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GQj-0O-BCC">
-                                                    <rect key="frame" x="0.0" y="0.0" width="395" height="155"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="242" height="155"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yj0-4L-JlN">
-                                                            <rect key="frame" x="86" y="8" width="226" height="105"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yj0-4L-JlN">
+                                                            <rect key="frame" x="8" y="25" width="226" height="105"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="South Africa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TjT-r2-tT2" userLabel="Country Label">
                                                                     <rect key="frame" x="0.0" y="0.0" width="226" height="30"/>
@@ -77,6 +77,11 @@
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="yj0-4L-JlN" secondAttribute="trailing" id="JgP-mF-W1h"/>
+                                                        <constraint firstItem="yj0-4L-JlN" firstAttribute="leading" secondItem="GQj-0O-BCC" secondAttribute="leadingMargin" id="Uk5-ar-DIb"/>
+                                                        <constraint firstItem="yj0-4L-JlN" firstAttribute="centerY" secondItem="GQj-0O-BCC" secondAttribute="centerY" id="zxY-GZ-cbQ"/>
+                                                    </constraints>
                                                 </collectionViewCellContentView>
                                                 <connections>
                                                     <outlet property="confirmedLabel" destination="7R2-Tr-gBH" id="BnW-ib-FCP"/>
@@ -125,7 +130,7 @@
         <!--Country Details View Controller-->
         <scene sceneID="nv1-Ts-pPQ">
             <objects>
-                <viewController id="7hL-gt-qhU" userLabel="Country Details View Controller" sceneMemberID="viewController">
+                <viewController id="7hL-gt-qhU" userLabel="Country Details View Controller" customClass="DetailsViewController" customModule="CovidDaily" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cHU-Ot-YdG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -137,32 +142,76 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="730"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xdu-x6-liC">
-                                            <size key="itemSize" width="410" height="216"/>
+                                            <size key="itemSize" width="410" height="70"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="HBb-WL-2bJ">
-                                                <rect key="frame" x="2" y="0.0" width="410" height="216"/>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="detailCell" id="HBb-WL-2bJ" customClass="DetailCollectionViewCell" customModule="CovidDaily" customModuleProvider="target">
+                                                <rect key="frame" x="2" y="0.0" width="410" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="T32-W4-6aM">
-                                                    <rect key="frame" x="0.0" y="0.0" width="410" height="216"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="410" height="70"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EMp-MY-cnT">
+                                                            <rect key="frame" x="8" y="25" width="394" height="20.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="150" verticalHuggingPriority="251" text="2021/15/04" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d60-eV-KAJ" userLabel="Date Label">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="355.5" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTW-cu-Z72" userLabel="Count Label">
+                                                                    <rect key="frame" x="355.5" y="0.0" width="38.5" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="EMp-MY-cnT" firstAttribute="leading" secondItem="T32-W4-6aM" secondAttribute="leadingMargin" id="9K8-fw-tf1"/>
+                                                        <constraint firstItem="EMp-MY-cnT" firstAttribute="centerY" secondItem="T32-W4-6aM" secondAttribute="centerY" id="SBK-4J-mPW"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="EMp-MY-cnT" secondAttribute="trailing" id="uSS-Ou-2Pe"/>
+                                                    </constraints>
                                                 </collectionViewCellContentView>
-                                                <size key="customSize" width="410" height="216"/>
+                                                <size key="customSize" width="410" height="70"/>
+                                                <connections>
+                                                    <outlet property="countLabel" destination="kTW-cu-Z72" id="Tmk-vc-hRo"/>
+                                                    <outlet property="dateLabel" destination="d60-eV-KAJ" id="wua-fc-yWr"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="7hL-gt-qhU" id="EpB-SD-ovO"/>
+                                            <outlet property="delegate" destination="7hL-gt-qhU" id="tSY-6W-SuS"/>
+                                        </connections>
                                     </collectionView>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ArB-kY-tQt">
                                         <rect key="frame" x="0.0" y="730" width="414" height="44"/>
                                         <items>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="El3-7S-iGp"/>
-                                            <barButtonItem title="Confirmed" id="00P-zJ-Ywq" userLabel="Confirmed"/>
+                                            <barButtonItem title="Confirmed" id="00P-zJ-Ywq" userLabel="Confirmed">
+                                                <connections>
+                                                    <action selector="handleSwitchMode:" destination="7hL-gt-qhU" id="Gbh-DH-2Pz"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="ner-0M-Snx"/>
-                                            <barButtonItem title="Deaths" id="uMc-5V-c7N" userLabel="Deaths"/>
+                                            <barButtonItem tag="1" title="Deaths" id="uMc-5V-c7N" userLabel="Deaths">
+                                                <connections>
+                                                    <action selector="handleSwitchMode:" destination="7hL-gt-qhU" id="JwX-wF-YYY"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="okd-IR-WDI"/>
-                                            <barButtonItem title="Recovered" id="NXc-co-dnk" userLabel="Recovered"/>
+                                            <barButtonItem tag="2" title="Recovered" id="NXc-co-dnk" userLabel="Recovered">
+                                                <connections>
+                                                    <action selector="handleSwitchMode:" destination="7hL-gt-qhU" id="EE8-8Q-iEW"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="gJu-zb-12V"/>
                                         </items>
                                     </toolbar>
@@ -178,7 +227,24 @@
                             <constraint firstItem="5I7-lf-8Od" firstAttribute="trailing" secondItem="LwG-Yw-QEB" secondAttribute="trailing" id="xPi-YC-EQ8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ENO-WQ-1kJ"/>
+                    <navigationItem key="navigationItem" id="ENO-WQ-1kJ">
+                        <rightBarButtonItems>
+                            <barButtonItem image="bookmark" catalog="system" id="g7s-Ve-xNK">
+                                <connections>
+                                    <action selector="handleBookmarkMode:" destination="7hL-gt-qhU" id="bO2-Km-weV"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="arrow.counterclockwise.icloud" catalog="system" id="CQD-Gv-P9j" userLabel="Refresh Bar Button Item">
+                                <connections>
+                                    <action selector="handleRefresh:" destination="7hL-gt-qhU" id="SZb-Wn-Bf2"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bookmarkButtonItem" destination="g7s-Ve-xNK" id="fEp-r6-asm"/>
+                        <outlet property="collectionView" destination="TGq-zV-8BP" id="B3X-CK-cbt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BvY-fb-BU3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -205,6 +271,7 @@
     </scenes>
     <resources>
         <image name="arrow.counterclockwise.icloud" catalog="system" width="128" height="88"/>
+        <image name="bookmark" catalog="system" width="112" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

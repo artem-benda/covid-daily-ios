@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="ConfirmedByDate" representedClassName="ConfirmedByDate" syncable="YES" codeGenerationType="class">
-        <attribute name="asOf" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="cases" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="confirmedDetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CountrySummary" inverseName="confirmedDetails" inverseEntity="CountrySummary"/>
-    </entity>
     <entity name="CountrySummary" representedClassName="CountrySummary" syncable="YES" codeGenerationType="class">
         <attribute name="asOf" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="countryCode" optional="YES" attributeType="String"/>
@@ -16,24 +11,16 @@
         <attribute name="totalConfirmed" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="totalDeaths" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="totalRecovered" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="confirmedDetails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ConfirmedByDate" inverseName="confirmedDetails" inverseEntity="ConfirmedByDate"/>
-        <relationship name="deathsDetails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DeathsByDate" inverseName="deathsDetails" inverseEntity="DeathsByDate"/>
-        <relationship name="recoveredDetails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RecoveredByDate" inverseName="recoveredDetails" inverseEntity="RecoveredByDate"/>
+        <relationship name="details" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DetailsByDate" inverseName="details" inverseEntity="DetailsByDate"/>
     </entity>
-    <entity name="DeathsByDate" representedClassName="DeathsByDate" syncable="YES" codeGenerationType="class">
+    <entity name="DetailsByDate" representedClassName="DetailsByDate" syncable="YES" codeGenerationType="class">
         <attribute name="asOf" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="cases" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="deathsDetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CountrySummary" inverseName="deathsDetails" inverseEntity="CountrySummary"/>
-    </entity>
-    <entity name="RecoveredByDate" representedClassName="RecoveredByDate" syncable="YES" codeGenerationType="class">
-        <attribute name="asOf" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="cases" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="recoveredDetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CountrySummary" inverseName="recoveredDetails" inverseEntity="CountrySummary"/>
+        <attribute name="tag" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="details" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CountrySummary" inverseName="details" inverseEntity="CountrySummary"/>
     </entity>
     <elements>
-        <element name="CountrySummary" positionX="-315.0901489257812" positionY="108.2440185546875" width="128" height="238"/>
-        <element name="ConfirmedByDate" positionX="-54" positionY="63" width="128" height="88"/>
-        <element name="DeathsByDate" positionX="-58.38427734375" positionY="230.3885498046875" width="128" height="88"/>
-        <element name="RecoveredByDate" positionX="-71.39471435546875" positionY="412.837158203125" width="128" height="88"/>
+        <element name="CountrySummary" positionX="-315.0901489257812" positionY="108.2440185546875" width="128" height="194"/>
+        <element name="DetailsByDate" positionX="-54" positionY="63" width="128" height="89"/>
     </elements>
 </model>

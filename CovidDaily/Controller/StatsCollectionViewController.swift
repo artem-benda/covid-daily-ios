@@ -24,6 +24,7 @@ class StatsCollectionViewController: UIViewController {
         super.viewDidLoad()
         let columnLayout = ColumnFlowLayout(
                     cellsPerRow: 1,
+                    cellHeight: 120,
                     minimumInteritemSpacing: 10,
                     minimumLineSpacing: 10,
                     sectionInset: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
@@ -139,7 +140,15 @@ extension StatsCollectionViewController: UICollectionViewDelegate {
         let fetchedObjects = fetchedResultController.fetchedObjects
         guard fetchedObjects != nil, indexPath.row < fetchedObjects!.count else { return }
         if let countrySummaryItem = fetchedResultController.fetchedObjects?[indexPath.row] {
-            performSegue(withIdentifier: "showCountryDetails", sender: countrySummaryItem)
+            performSegue(withIdentifier: "showDetails", sender: countrySummaryItem)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetails" {
+            let detailsViewController = segue.destination as! DetailsViewController
+            detailsViewController.summary = sender as? CountrySummary
+            detailsViewController.dataController = dataController
         }
     }
 }
@@ -161,8 +170,8 @@ extension StatsCollectionViewController: UICollectionViewDataSource {
             cell.recoveredLabel.text = "\(summary.newRecovered) recovered new of \(summary.totalRecovered) total"
             cell.dateLabel.text = DateFormatter.localizedString(
                 from: summary.asOf!,
-                dateStyle: .full,
-                timeStyle: .full
+                dateStyle: .long,
+                timeStyle: .long
             )
         }
         return cell

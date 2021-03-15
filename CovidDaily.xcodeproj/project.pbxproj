@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86459FC425FF78CF00BA88FA /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86459FC325FF78CF00BA88FA /* DetailCollectionViewCell.swift */; };
+		86459FC925FF7A5900BA88FA /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86459FC825FF7A5900BA88FA /* DetailsViewController.swift */; };
 		86BB17B025FE38CE004D40A5 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BB17AF25FE38CE004D40A5 /* DataController.swift */; };
 		86BB17B625FE3946004D40A5 /* CovidDaily.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 86BB17B425FE3946004D40A5 /* CovidDaily.xcdatamodeld */; };
 		86BB17BB25FE40CE004D40A5 /* ColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BB17BA25FE40CE004D40A5 /* ColumnFlowLayout.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		86459FC325FF78CF00BA88FA /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		86459FC825FF7A5900BA88FA /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		86BB17AF25FE38CE004D40A5 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		86BB17B525FE3946004D40A5 /* CovidDaily.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CovidDaily.xcdatamodel; sourceTree = "<group>"; };
 		86BB17BA25FE40CE004D40A5 /* ColumnFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnFlowLayout.swift; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 				86D8E12825F89EE70087ECA7 /* Main.storyboard */,
 				86D8E12D25F89EE80087ECA7 /* LaunchScreen.storyboard */,
 				86BB17F725FE63DA004D40A5 /* SummaryCollectionViewCell.swift */,
+				86459FC325FF78CF00BA88FA /* DetailCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -114,6 +119,7 @@
 			children = (
 				86BB17FC25FE6508004D40A5 /* Extensions */,
 				86D8E12625F89EE70087ECA7 /* StatsCollectionViewController.swift */,
+				86459FC825FF7A5900BA88FA /* DetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -347,8 +353,10 @@
 				86BB17FE25FE6522004D40A5 /* UIViewController+extension+showErrorAlert.swift in Sources */,
 				86BB17B025FE38CE004D40A5 /* DataController.swift in Sources */,
 				86BB17DA25FE57CC004D40A5 /* TotalByDateDto.swift in Sources */,
+				86459FC425FF78CF00BA88FA /* DetailCollectionViewCell.swift in Sources */,
 				86D8E12325F89EE70087ECA7 /* AppDelegate.swift in Sources */,
 				86BB180325FE6537004D40A5 /* ActivityIndicatorOverlay.swift in Sources */,
+				86459FC925FF7A5900BA88FA /* DetailsViewController.swift in Sources */,
 				86D8E12525F89EE70087ECA7 /* SceneDelegate.swift in Sources */,
 				86BB17C325FE4484004D40A5 /* SummaryResponse.swift in Sources */,
 				86BB17C825FE4547004D40A5 /* CountrySummaryItemDto.swift in Sources */,

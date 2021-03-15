@@ -9,7 +9,7 @@ import Foundation
 
 class ApiClient {
     
-    class func taskForRequest<RequestBodyType: Encodable, ResponseBodyType: Decodable, ErrorResultBodyType: Decodable & Error>(url: URL, httpMethod: HttpMethodType = .get, requestBody: RequestBodyType? = nil, resultDataMapper: ((Data?) -> Data?)?, resultType: ResponseBodyType.Type? = nil, errorResultType: ErrorResultBodyType.Type? = nil, completionHandler: @escaping (ResponseBodyType?, Error?) -> Void) -> URLSessionTask {
+    class func taskForRequest<RequestBodyType: Encodable, ResponseBodyType: Decodable, ErrorResultBodyType: Decodable & Error>(url: URL, httpMethod: HttpMethodType = .get, dateFormatter: DateFormatter, requestBody: RequestBodyType? = nil, resultDataMapper: ((Data?) -> Data?)?, resultType: ResponseBodyType.Type? = nil, errorResultType: ErrorResultBodyType.Type? = nil, completionHandler: @escaping (ResponseBodyType?, Error?) -> Void) -> URLSessionTask {
         print("Starting \(httpMethod.rawValue) request to URL: \(url.absoluteString)")
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = httpMethod.stringValue
@@ -43,7 +43,7 @@ class ApiClient {
             }
             do {
                 let jsonDecoder = JSONDecoder()
-                jsonDecoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+                jsonDecoder.dateDecodingStrategy = .formatted(dateFormatter)
                 let resultObject = try jsonDecoder.decode(resultType.self, from: mappedData)
                 // Successfully parsed result
                 DispatchQueue.main.async {
@@ -62,6 +62,7 @@ class ApiClient {
                 do {
                     let jsonDecoder = JSONDecoder()
                     let resultObject = try jsonDecoder.decode(errorResultType.self, from: mappedData)
+                    jsonDecoder.dateDecodingStrategy = .formatted(dateFormatter)
                     // Successfully parsed json for error type
                     DispatchQueue.main.async {
                         completionHandler(nil, resultObject)
@@ -100,10 +101,19 @@ struct VoidErrorResponseBody: Error, Decodable {}
 extension DateFormatter {
   static let iso8601Full: DateFormatter = {
     let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSZZZZZ"
     formatter.calendar = Calendar(identifier: .iso8601)
     formatter.timeZone = TimeZone(secondsFromGMT: 0)
     formatter.locale = Locale(identifier: "en_US_POSIX")
     return formatter
   }()
+    
+    static let iso: DateFormatter = {
+      let formatter = DateFormatter()
+      formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+      formatter.calendar = Calendar(identifier: .iso8601)
+      formatter.timeZone = TimeZone(secondsFromGMT: 0)
+      formatter.locale = Locale(identifier: "en_US_POSIX")
+      return formatter
+    }()
 }
