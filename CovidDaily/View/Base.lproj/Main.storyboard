@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Tm-1X-s4H">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Latest Summary-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="StatsCollectionViewController" customModule="CovidDaily" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="21j-fQ-h01">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" horizontalHuggingPriority="450" verticalHuggingPriority="450" placeholder="Search by Country" translatesAutoresizingMaskIntoConstraints="NO" id="fPL-mk-mR4">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="850" verticalCompressionResistancePriority="850" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xpu-gC-x0f">
+                                        <rect key="frame" x="0.0" y="56" width="414" height="718"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="chu-Q8-9gY">
+                                            <size key="itemSize" width="395" height="155"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="summaryCell" id="7r1-wr-9og" customClass="SummaryCollectionViewCell" customModule="CovidDaily" customModuleProvider="target">
+                                                <rect key="frame" x="9.5" y="0.0" width="395" height="155"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GQj-0O-BCC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="395" height="155"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yj0-4L-JlN">
+                                                            <rect key="frame" x="86" y="8" width="226" height="105"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="South Africa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TjT-r2-tT2" userLabel="Country Label">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="226" height="30"/>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 confirmed new of 1000 total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7R2-Tr-gBH" userLabel="Confirmed Label">
+                                                                    <rect key="frame" x="0.0" y="30" width="226" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 deaths new of 1000 total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2b-c4-3FU" userLabel="Deaths Label">
+                                                                    <rect key="frame" x="0.0" y="50.5" width="226" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 recovered new of 1000 total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBr-nF-iSb" userLabel="Recovered Label">
+                                                                    <rect key="frame" x="0.0" y="71" width="226" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021/15/04" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="WgE-Ng-eWO" userLabel="Date Label">
+                                                                    <rect key="frame" x="0.0" y="91.5" width="226" height="13.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </collectionViewCellContentView>
+                                                <connections>
+                                                    <outlet property="confirmedLabel" destination="7R2-Tr-gBH" id="BnW-ib-FCP"/>
+                                                    <outlet property="countryNameLabel" destination="TjT-r2-tT2" id="Vf0-fH-vc9"/>
+                                                    <outlet property="dateLabel" destination="WgE-Ng-eWO" id="iOv-Kn-yrb"/>
+                                                    <outlet property="deathsLabel" destination="u2b-c4-3FU" id="cCM-SK-aPy"/>
+                                                    <outlet property="recoveredLabel" destination="xBr-nF-iSb" id="Mq8-lu-t1P"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="AHW-nv-ilL"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="wL6-XI-I0O"/>
+                                        </connections>
+                                    </collectionView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="21j-fQ-h01" secondAttribute="trailing" id="IgX-37-BYV"/>
+                            <constraint firstItem="21j-fQ-h01" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Jmg-u8-ZIc"/>
+                            <constraint firstItem="21j-fQ-h01" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UuT-4P-oDj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="21j-fQ-h01" secondAttribute="bottom" id="j3X-8m-vY1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Latest Summary" id="9YG-IV-PY9">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="23N-jW-9JC"/>
+                        <barButtonItem key="rightBarButtonItem" image="arrow.counterclockwise.icloud" catalog="system" id="oRX-LQ-EXS">
+                            <connections>
+                                <action selector="startGetSummaryRequest" destination="BYZ-38-t0r" id="WFf-tZ-yXd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="Xpu-gC-x0f" id="Ck3-q1-CL3"/>
+                        <outlet property="searchBar" destination="fPL-mk-mR4" id="vNN-Xj-Up8"/>
+                        <segue destination="7hL-gt-qhU" kind="show" identifier="showDetails" id="Fz4-UU-6Id"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="820" y="78"/>
+        </scene>
+        <!--Country Details View Controller-->
+        <scene sceneID="nv1-Ts-pPQ">
+            <objects>
+                <viewController id="7hL-gt-qhU" userLabel="Country Details View Controller" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cHU-Ot-YdG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LwG-Yw-QEB">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TGq-zV-8BP">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="730"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xdu-x6-liC">
+                                            <size key="itemSize" width="410" height="216"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="HBb-WL-2bJ">
+                                                <rect key="frame" x="2" y="0.0" width="410" height="216"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="T32-W4-6aM">
+                                                    <rect key="frame" x="0.0" y="0.0" width="410" height="216"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionViewCellContentView>
+                                                <size key="customSize" width="410" height="216"/>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ArB-kY-tQt">
+                                        <rect key="frame" x="0.0" y="730" width="414" height="44"/>
+                                        <items>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="El3-7S-iGp"/>
+                                            <barButtonItem title="Confirmed" id="00P-zJ-Ywq" userLabel="Confirmed"/>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="ner-0M-Snx"/>
+                                            <barButtonItem title="Deaths" id="uMc-5V-c7N" userLabel="Deaths"/>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="okd-IR-WDI"/>
+                                            <barButtonItem title="Recovered" id="NXc-co-dnk" userLabel="Recovered"/>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="gJu-zb-12V"/>
+                                        </items>
+                                    </toolbar>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5I7-lf-8Od"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LwG-Yw-QEB" firstAttribute="leading" secondItem="5I7-lf-8Od" secondAttribute="leading" id="HrP-3E-ipU"/>
+                            <constraint firstItem="5I7-lf-8Od" firstAttribute="bottom" secondItem="LwG-Yw-QEB" secondAttribute="bottom" id="YCz-6O-j7Z"/>
+                            <constraint firstItem="LwG-Yw-QEB" firstAttribute="top" secondItem="5I7-lf-8Od" secondAttribute="top" id="tcf-mR-Lfc"/>
+                            <constraint firstItem="5I7-lf-8Od" firstAttribute="trailing" secondItem="LwG-Yw-QEB" secondAttribute="trailing" id="xPi-YC-EQ8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ENO-WQ-1kJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BvY-fb-BU3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1611.5942028985507" y="77.678571428571431"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EZv-Ua-x7I">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2Tm-1X-s4H" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6VT-Qr-aKv">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Rsp-vN-PTj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0E8-Zd-ga4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="77.678571428571431"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.counterclockwise.icloud" catalog="system" width="128" height="88"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
